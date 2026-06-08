@@ -1,8 +1,11 @@
 .presentation-container {
   width: 100vw;
   height: 100vh;
-  background-color: #050505; /* Fundo imersivo escuro */
-  background-image: radial-gradient(circle at center, #1a1a24 0%, #000000 100%);
+  background-color: #022c16; /* Fundo verde escuro Brasil */
+  background-image: 
+    radial-gradient(circle at top right, rgba(250, 204, 21, 0.25) 0%, transparent 40%), /* Brilho Amarelo */
+    radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.25) 0%, transparent 40%), /* Brilho Azul */
+    radial-gradient(circle at center, #064e3b 0%, #020617 100%); /* Centro Verde para Bordas Escuras */
   display: flex;
   justify-content: center;
   align-items: center;

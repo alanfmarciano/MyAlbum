@@ -84,6 +84,44 @@ export default function StickerSlot({ slot, index, customClass, isPresentation }
   const stickerObj = (slot.stickerId !== null) ? stickers.find(s => s.id === slot.stickerId) : null;
   const stickerUrl = stickerObj ? (stickerObj.imageBase64 || stickerObj.imageObjectUrl) : null;
   
+  const [imageRatio, setImageRatio] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (isExpanded && stickerUrl) {
+      const img = new Image();
+      img.onload = () => {
+        setImageRatio(img.width / img.height);
+      };
+      img.src = stickerUrl;
+    } else if (!isExpanded) {
+      setImageRatio(null);
+    }
+  }, [isExpanded, stickerUrl]);
+
+  const getModalDimensions = () => {
+    if (!imageRatio) {
+      return { 
+        width: '90vw', 
+        maxWidth: '400px', 
+        aspectRatio: isLandscape ? '65/49' : '49/65' 
+      };
+    }
+    
+    const limitW = isLandscape ? 600 : 400;
+    const maxVh = window.innerHeight * 0.85;
+    const maxVw = window.innerWidth * 0.9;
+    
+    let w = Math.min(limitW, maxVw);
+    let h = w / imageRatio;
+    
+    if (h > maxVh) {
+      h = maxVh;
+      w = h * imageRatio;
+    }
+    
+    return { width: `${w}px`, height: `${h}px` };
+  };
+  
   const rarity = stickerObj?.rarity || 'common';
 
   const rarityClass = ((slot.stickerId !== null) && rarity !== 'common') ? `rarity-${rarity}` : 'rarity-common';
@@ -190,7 +228,7 @@ export default function StickerSlot({ slot, index, customClass, isPresentation }
               <div 
                 className={rarityClass}
                 style={{ 
-                  width: '90vw', maxWidth: '400px', aspectRatio: isLandscape ? '65/49' : '49/65', 
+                  ...getModalDimensions(),
                   ...rarityStyle, borderRadius: '16px', overflow: 'hidden', position: 'relative',
                   transform: `rotate(${slot.rotation || 0}deg)`,
                   boxShadow: `0 0 100px ${

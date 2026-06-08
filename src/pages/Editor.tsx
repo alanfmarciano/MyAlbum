@@ -244,9 +244,9 @@ export default function Editor() {
             >
               ▶️ APRESENTAÇÃO
             </button>
-            <div className="editor-title font-outfit text-gold" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '1.1rem', marginLeft: '8px', lineHeight: '1.1' }}>
+            <div className="editor-title font-outfit text-gold" style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '1.1rem', marginLeft: '8px', flex: 1, minWidth: 0 }}>
               <span style={{ flexShrink: 0 }}>⚽</span>
-              <span style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{config.albumName}</span>
+              <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', display: 'block' }}>{config.albumName}</span>
             </div>
           </div>
           

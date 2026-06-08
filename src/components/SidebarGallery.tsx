@@ -51,9 +51,9 @@ export function SidebarGallery({ currentSpreadIndex = 0 }: { currentSpreadIndex?
   };
 
   return (
-    <div className="w-full h-full flex flex-col bg-[#111111]">
-      <div className="px-6 pt-4 pb-5 border-b border-gray-800">
-        <h3 className="text-[18px] font-extrabold text-gray-100 uppercase text-center w-full drop-shadow-sm" style={{ letterSpacing: '0.15em', marginBottom: '12px' }}>
+    <div className="w-full h-full flex flex-col bg-transparent">
+      <div className="px-6 pt-4 pb-5 border-b border-white/5">
+        <h3 className="text-[18px] font-extrabold text-white uppercase text-center w-full drop-shadow-sm" style={{ letterSpacing: '0.15em', marginBottom: '12px' }}>
           Suas Figurinhas
         </h3>
         
