@@ -53,7 +53,8 @@ export default function AlbumPage({ page, pageIndex, previewConfig, previewSlots
   const config = previewConfig || storeConfig;
   const slots: Slot[] = previewSlots ? previewSlots.filter(s => s.pageId === page.id) : storeSlots;
 
-  const customBg = config.bgImage ? { backgroundImage: `url(${config.bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {};
+  const bgUrl = page.customBgImage || config.bgImage;
+  const customBg = bgUrl ? { backgroundImage: `url(${bgUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : {};
 
   if (page.pageTheme === 'abertura-left') {
     return (

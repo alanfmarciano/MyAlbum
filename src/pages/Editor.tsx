@@ -348,6 +348,7 @@ export default function Editor() {
                   leftPageIndex={visualLeftPageIndex} rightPageIndex={visualRightPageIndex} 
                   config={config} 
                   hideSpine={isExporting === 'a4'}
+                  isEditor={!isExporting}
                 />
               </div>
             </div>

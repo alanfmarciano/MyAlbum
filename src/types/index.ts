@@ -50,10 +50,14 @@ export interface Page {
   // Parâmetros para alunos
   startNum?: number;
   endNum?: number;
+  
+  // Customizações WYSIWYG
+  customBgImage?: string;
 }
 
 export interface AlbumConfig {
   id: string;
+  themeName: string; // ex: 'copa2026'
   albumName: string;
   totalPages: number;
   stickersPerPage: number;

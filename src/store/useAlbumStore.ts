@@ -35,6 +35,7 @@ interface AlbumState {
   addStickers: (files: FileList) => Promise<void>;
   moveStickerToSlot: (stickerId: string, slotId: string | null) => Promise<void>;
   updateSlot: (slotId: string, partial: Partial<Slot>) => void;
+  updatePage: (pageId: string, partial: Partial<Page>) => void;
   autoFillCurrentSpread: (slotIds: string[]) => Promise<void>;
   randomizeRarities: () => Promise<void>;
   resetRarities: () => Promise<void>;
@@ -126,6 +127,7 @@ const compressImage = (file: File, maxWidth = 800): Promise<{ blob: Blob, isLand
 
 const initialConfig: AlbumConfig = {
   id: 'album-001',
+  themeName: 'copa2026',
   albumName: 'Álbum Digital da Copa do Mundo SENAI',
   totalPages: 4,
   stickersPerPage: 9,
@@ -145,6 +147,7 @@ const initialConfig: AlbumConfig = {
 
 export const defaultConfig: AlbumConfig = {
   id: 'album-default',
+  themeName: 'copa2026',
   albumName: '',
   totalPages: 4,
   stickersPerPage: 9,
@@ -366,6 +369,13 @@ export const useAlbumStore = create<AlbumState>((set, get) => ({
     const updatedSlots = state.slots.map(slot => slot.id === slotId ? { ...slot, ...partial } : slot);
     db.slots.update(slotId, partial);
     set({ slots: updatedSlots });
+  },
+
+  updatePage: (pageId: string, partial: Partial<Page>) => {
+    const state = get();
+    const updatedPages = state.pages.map(page => page.id === pageId ? { ...page, ...partial } : page);
+    db.pages.update(pageId, partial);
+    set({ pages: updatedPages });
   },
 
   autoFillCurrentSpread: async (slotIds: string[]) => {
