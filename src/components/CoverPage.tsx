@@ -16,7 +16,7 @@ export default function CoverPage({ config, isBack, customBgImage }: CoverPagePr
 
   const customStyle = { 
     backgroundImage: `url(${finalBgImage})`, 
-    backgroundSize: 'cover', 
+    backgroundSize: '100% 100%', 
     backgroundPosition: 'center', 
     backgroundRepeat: 'no-repeat' 
   };

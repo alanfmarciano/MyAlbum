@@ -149,7 +149,7 @@ html {
 
 /* ===== BRAZIL STADIUM GRADIENT BACKGROUND ===== */
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   background-color: #022c16; /* Fundo verde escuro Brasil */
   color: var(--text-primary);
   min-height: 100vh;
@@ -365,7 +365,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Outfit', sans-serif;
   font-size: 0.95rem;
   transition: all var(--transition-fast);
   outline: none;

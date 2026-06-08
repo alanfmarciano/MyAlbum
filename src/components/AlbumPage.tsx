@@ -55,7 +55,7 @@ export default function AlbumPage({ page, pageIndex, previewConfig, previewSlots
   const slots: Slot[] = previewSlots ? previewSlots.filter(s => s.pageId === page.id) : storeSlots;
 
   const bgUrl = page.customBgImage || config.bgImage;
-  const customBg = bgUrl ? { backgroundImage: `url(${bgUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : {};
+  const customBg = bgUrl ? { backgroundImage: `url(${bgUrl})`, backgroundSize: '100% 100%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' } : {};
 
   const isLeftPage = pageIndex % 2 !== 0; // Se a capa for 0, as da esquerda são ímpares (1, 3, 5...)
   const pageNum = String(page.order).padStart(2, '0');

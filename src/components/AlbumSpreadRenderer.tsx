@@ -66,11 +66,12 @@ export function AlbumSpreadRenderer({ leftPage, rightPage, leftPageIndex, rightP
       width: '100%', 
       height: '100%', 
       aspectRatio: '420/297', 
+      margin: '0 auto',
       gap: '2px', 
       backgroundColor: isSinglePage ? 'transparent' : '#111', 
       padding: isSinglePage ? '0' : '4px', 
-      borderRadius: '8px', 
       boxShadow: isSinglePage ? 'none' : '0 20px 50px rgba(0,0,0,0.5)',
+      borderRadius: '4px',
       position: 'relative'
     }}>
       {/* Espinha do Álbum (Sombra no centro) */}
