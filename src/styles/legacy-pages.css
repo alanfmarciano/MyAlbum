@@ -1,0 +1,571 @@
+/* =============================================
+   PÁGINA ABERTURA
+   ============================================= */
+.page-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  justify-content: center;
+}
+.welcome-icon { font-size: 2.2rem; }
+.welcome-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--blob-blue, #1a3daa);
+  line-height: 1.1;
+}
+.welcome-text {
+  font-size: 0.67rem;
+  color: rgba(0, 0, 0, 0.42);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 200px;
+}
+
+.turma-id-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+}
+.turma-id-icon {
+  font-size: 2.8rem;
+  filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.5));
+}
+.turma-id-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 3px 12px;
+  border-radius: 20px;
+}
+.turma-id-name {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1rem, 3.5vw, 1.5rem);
+  color: var(--blob-blue, #1a3daa);
+  line-height: 1.15;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+}
+.turma-id-sub {
+  font-size: 0.65rem;
+  color: rgba(0, 0, 0, 0.38);
+}
+.turma-id-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 0.3rem;
+}
+.turma-badge {
+  background: rgba(26, 61, 170, 0.08);
+  border: 1px solid rgba(26, 61, 170, 0.2);
+  color: var(--blob-blue, #1a3daa);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.57rem;
+  font-weight: 700;
+}
+
+/* =============================================
+   PÁGINA PRETA — TURMA ESPECIAL
+   ============================================= */
+.theme-turma-especial {
+  background: linear-gradient(145deg, #08080f 0%, #0e1220 50%, #080c18 100%);
+  position: relative;
+}
+
+.turma-especial-deco {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.te-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 215, 0, 0.12);
+}
+.te-circle-1 { width: 340px; height: 340px; top: -80px; left: -80px; }
+.te-circle-2 { width: 220px; height: 220px; top: -30px; right: -60px; border-color: rgba(0, 180, 197, 0.15); }
+.te-circle-3 { width: 160px; height: 160px; bottom: 30px; left: 20px; border-color: rgba(141, 198, 63, 0.1); }
+.te-lines {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255, 215, 0, 0.02) 31px),
+    repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(0, 180, 197, 0.02) 31px);
+}
+
+.turma-especial-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.te-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: var(--gold, #ffd700);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.te-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.25);
+}
+.te-subtitle {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--gold, #ffd700);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  max-width: 90%;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+.te-desc {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+.turma-foto-wrap {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 0.5rem 0;
+}
+.photo-grid-turma {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4px;
+}
+.te-slot-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 41.5%;
+  transition: transform 0.3s;
+}
+.te-slot-group:nth-child(1), .te-slot-group:nth-child(3) { transform: translateX(-25px); }
+.te-slot-group:nth-child(2) { transform: translateX(35px); }
+
+/* =============================================
+   PÁGINAS DE ALUNOS E CABEÇALHOS GERAIS
+   ============================================= */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--blob-blue, #1a3daa);
+  color: #333;
+  flex-shrink: 0;
+}
+.page-num {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--blob-blue, #1a3daa);
+  letter-spacing: 1px;
+}
+.page-section {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.42);
+}
+.footer-line {
+  display: block;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+  margin-top: 0.4rem;
+}
+
+.theme-alunos {
+  background: linear-gradient(160deg, #f0f4ff 0%, #e8eeff 100%);
+}
+.turma-alunos-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(26, 61, 170, 0.45);
+  text-align: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.photo-grid-alunos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-evenly;
+  gap: 10px 8px;
+  flex: 1;
+  padding: 4px 2px;
+}
+.photo-grid-alunos .photo-slot {
+  width: 30.5%;
+  aspect-ratio: 49 / 65;
+  min-height: 0;
+}
+
+/* =============================================
+   PÁGINA PRETA — LABORATÓRIOS / ESTÁDIOS
+   ============================================= */
+.theme-labs-especial {
+  background: linear-gradient(145deg, #050810 0%, #0a0e1a 50%, #060a14 100%);
+  position: relative;
+}
+.labs-especial-deco {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.le-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 180, 197, 0.12);
+}
+.le-circle-1 { width: 300px; height: 300px; top: -100px; right: -60px; border-color: rgba(0, 180, 197, 0.14); }
+.le-circle-2 { width: 200px; height: 200px; bottom: -50px; left: -50px; border-color: rgba(255, 215, 0, 0.1); }
+.le-circle-3 { width: 120px; height: 120px; top: 50%; right: 20px; border-color: rgba(141, 198, 63, 0.1); transform: translateY(-50%); }
+
+.labs-especial-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.le-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(0, 180, 197, 0.12);
+  border: 1px solid rgba(0, 180, 197, 0.3);
+  color: var(--blob-teal, #00b4c5);
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.le-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(0, 180, 197, 0.25);
+}
+.le-subtitle {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  color: var(--blob-teal, #00b4c5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  max-width: 90%;
+  opacity: 0.8;
+}
+.le-desc {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.28);
+  line-height: 1.5;
+  max-width: 85%;
+}
+.le-deco-text {
+  font-family: "Oswald", sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.04);
+  letter-spacing: 6px;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.labs-slots-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  position: relative;
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4px;
+}
+.lab-slot-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 41.5%;
+  transition: transform 0.3s;
+}
+.lab-slot-group:nth-child(1), .lab-slot-group:nth-child(3) { transform: translateX(-25px); }
+.lab-slot-group:nth-child(2) { transform: translateX(35px); }
+
+/* =============================================
+   PÁGINA COORDENAÇÃO (especial)
+   ============================================= */
+.theme-coord-especial {
+  background: linear-gradient(160deg, #0d0a1e 0%, #1a0e30 50%, #0f0820 100%);
+  position: relative;
+  overflow: hidden;
+}
+.coord-especial-deco {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.co-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(123, 63, 160, 0.12);
+}
+.co-circle-1 { width: 300px; height: 300px; top: -100px; right: -60px; border-color: rgba(123, 63, 160, 0.14); }
+.co-circle-2 { width: 200px; height: 200px; bottom: -50px; left: -50px; border-color: rgba(255, 215, 0, 0.1); }
+.co-circle-3 { width: 120px; height: 120px; top: 50%; right: 20px; border-color: rgba(200, 160, 255, 0.1); transform: translateY(-50%); }
+
+.coord-especial-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  text-align: center;
+  padding: 1.5rem;
+}
+.co-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(123, 63, 160, 0.12);
+  border: 1px solid rgba(123, 63, 160, 0.35);
+  color: #c49ee8;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+.co-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(123, 63, 160, 0.3);
+}
+.co-subtitle {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.85rem;
+  color: #c49ee8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  max-width: 90%;
+  opacity: 0.8;
+}
+.co-desc {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.28);
+  line-height: 1.5;
+  max-width: 85%;
+}
+.co-deco-text {
+  font-family: "Oswald", sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
+  color: rgba(255, 255, 255, 0.04);
+  letter-spacing: 6px;
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.coord-slots-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  position: relative;
+  z-index: 5;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4px;
+}
+.coord-slot-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 41.5%;
+  transition: transform 0.3s;
+}
+.coord-slot-group:nth-child(1), .coord-slot-group:nth-child(3) { transform: translateX(-25px); }
+.coord-slot-group:nth-child(2) { transform: translateX(35px); }
+
+/* =============================================
+   PÁGINA FINAL / ENCERRAMENTO
+   ============================================= */
+.theme-final {
+  background: linear-gradient(160deg, #150f00 0%, #271900 100%);
+}
+
+.closing-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  text-align: center;
+}
+.closing-icon { font-size: 2.8rem; }
+.closing-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: 1.7rem;
+  color: var(--gold, #ffd700);
+  letter-spacing: 2px;
+}
+.closing-text {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.6;
+  max-width: 180px;
+}
+.closing-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+.badge {
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.28);
+  color: var(--gold, #ffd700);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.57rem;
+  font-weight: 700;
+}
+.closing-progress-wrap { width: 100%; }
+.closing-progress-label {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.32);
+  margin-bottom: 4px;
+}
+.champion-stars {
+  font-size: 1.1rem;
+  text-align: center;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+}
+
+.closing-right-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+.cr-trophy {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 0 24px rgba(255, 215, 0, 0.6));
+}
+.cr-title {
+  font-family: "Oswald", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--gold, #ffd700);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  max-width: 90%;
+}
+.cr-sub { font-size: 0.6rem; color: rgba(255, 255, 255, 0.3); letter-spacing: 1px; }
+.cr-barcode {
+  font-size: 0.45rem;
+  color: rgba(255, 255, 255, 0.15);
+  margin-top: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.page-vert-label {
+  position: absolute;
+  right: 6px;
+  bottom: 28px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 0.62rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 6;
+  max-height: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-vert-label--gold { color: var(--gold, #ffd700); opacity: 0.32; }
+.page-vert-label--teal { color: var(--blob-teal, #00b4c5); opacity: 0.3; }
+.page-vert-label--purple { color: #c49ee8; opacity: 0.3; }

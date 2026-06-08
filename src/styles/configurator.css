@@ -1,0 +1,447 @@
+/* ============================================
+   CONFIGURATOR PAGE STYLES
+   ============================================ */
+
+.configurator {
+  min-height: 100vh;
+  padding: var(--space-md) var(--space-xl) var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.config-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
+.config-title {
+  font-family: 'Rubik Mono One', 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.config-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.config-body {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* ---- Form ---- */
+.config-form {
+  padding: var(--space-xl);
+}
+
+.config-section {
+  margin-bottom: var(--space-xl);
+}
+
+.config-section:last-of-type {
+  margin-bottom: var(--space-lg);
+}
+
+.config-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--border-glass);
+}
+
+.config-section-title svg {
+  color: #00a651;
+}
+
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.range-with-value {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.range-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #00a651;
+  min-width: 36px;
+  text-align: center;
+}
+
+.color-picker-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.color-input {
+  width: 48px;
+  height: 36px;
+  border: 2px solid var(--copa-blue-500);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  background: none;
+  padding: 0;
+}
+
+.color-input::-webkit-color-swatch-wrapper {
+  padding: 2px;
+}
+
+.color-input::-webkit-color-swatch {
+  border: none;
+  border-radius: 3px;
+}
+
+.color-presets {
+  display: flex;
+  gap: 6px;
+}
+
+.color-preset {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.color-preset:hover {
+  transform: scale(1.2);
+  border-color: var(--copa-gold-500);
+}
+
+.config-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.toggle-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.config-actions {
+  margin-top: var(--space-lg);
+}
+
+/* ---- Preview ---- */
+.config-preview {
+  position: sticky;
+  top: 100px;
+}
+
+.preview-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.preview-album {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.preview-cover {
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 210 / 297;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #0f2040, #000);
+  transition: background var(--transition-base);
+  box-shadow: 8px 12px 35px rgba(0,0,0,0.4);
+}
+
+.preview-cover-badge {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.preview-cover-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--copa-gold-400);
+  margin-bottom: 4px;
+  text-align: center;
+  padding: 0 8px;
+}
+
+.preview-cover-sub {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.preview-cover-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--copa-gold-500);
+  margin-bottom: 4px;
+}
+
+.preview-cover-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.1em;
+}
+
+.preview-page {
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  aspect-ratio: 210 / 297;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  transition: background var(--transition-base);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.preview-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.preview-slot {
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.preview-slot.border-classic {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+}
+
+.preview-slot.border-modern {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.preview-slot.border-none {
+  border: none;
+}
+
+.preview-slot-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+}
+
+.preview-slot-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 8px;
+  opacity: 0.5;
+}
+
+.preview-slot-silhouette {
+  color: white;
+}
+
+.config-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.preview-flip-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.preview-album {
+  cursor: pointer;
+}
+
+.preview-album:hover {
+  border-color: rgba(212, 167, 69, 0.2);
+}
+
+.preview-page {
+  display: none;
+}
+
+.preview-info {
+  text-align: center;
+  margin-top: var(--space-md);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---- Page Names ---- */
+.page-names-container {
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+}
+
+.page-names-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.page-names-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.page-names-container::-webkit-scrollbar-thumb {
+  background: var(--copa-blue-500);
+  border-radius: 4px;
+}
+
+.page-name-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.page-name-index {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  color: #ffffff;
+  background: #0f172a;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.preview-page-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.preview-page-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.preview-page-footer {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+.preview-page-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.config-toggles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .config-body {
+    grid-template-columns: 1fr;
+  }
+
+  .config-preview {
+    position: static;
+    order: -1;
+    margin-bottom: var(--space-xl);
+  }
+
+  .config-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .config-toggles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .segmented-control {
+    flex-wrap: wrap;
+  }
+
+  .segment {
+    min-width: 60px;
+    flex-grow: 1;
+  }
+}

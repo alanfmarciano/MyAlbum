@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pacote de Figurinhas 3D - SENAI</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a; 
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .scene {
+    width: 280px;
+    height: 380px; /* Tamanho ajustado para a proporção da sua imagem */
+    perspective: 1200px;
+  }
+
+  .pack {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotatePack 8s infinite linear;
+  }
+
+  @keyframes rotatePack {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+
+  .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  }
+
+  /* Face Frontal com a imagem do pacote */
+  .front {
+    background-image: url('pacote.png'); 
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Necessário para posicionar o logo do SENAI por cima */
+  }
+
+  /* O Logo do SENAI posicionado por cima do logo da Panini */
+  .logo-senai {
+    position: absolute;
+    bottom: 12%;  /* Posição vertical - ajuste se precisar subir ou descer */
+    right: 12%;   /* Posição horizontal - ajuste se precisar ir para os lados */
+    width: 35%;   /* Largura do logo para cobrir o da Panini */
+    height: 12%;  /* Altura do logo */
+    background-image: url('logo-senai.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #E3000F; /* Cor vermelha do fundo do SENAI para cobrir bem */
+    border-radius: 2px;
+  }
+
+  /* O Verso do pacote */
+  .back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #bdc3c7 0%, #ffffff 50%, #bdc3c7 100%);
+    border: 2px solid #a3a3a3;
+  }
+
+  .back::after, .back::before {
+    content: '';
+    width: 100%;
+    height: 25px;
+    background: repeating-linear-gradient(90deg, #999, #999 2px, #ccc 2px, #ccc 4px);
+    position: absolute;
+  }
+  .back::after { top: 0; border-radius: 10px 10px 0 0; }
+  .back::before { bottom: 0; border-radius: 0 0 10px 10px; }
+</style>
+</head>
+<body>
+
+<div class="scene">
+  <div class="pack">
+    <div class="face front">
+      <div class="logo-senai"></div>
+    </div>
+    <div class="face back"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* 
+  Aqui podemos colocar as variáveis globais personalizadas da Copa do Mundo 
+  para usar em conjunto com o Tailwind (ex: var(--copa-gold))
+*/
+:root {
+  --copa-green: #008f4c;
+  --copa-gold-400: #d4a745;
+  --copa-gold-500: #c1922c;
+  --dark-bg: #0a0e18;
+}

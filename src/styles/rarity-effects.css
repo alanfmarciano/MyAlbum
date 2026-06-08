@@ -1,0 +1,368 @@
+/* ============================================
+   RARITY EFFECTS — Efeitos Visuais de Raridade
+   Comum | Raro | Épico | Lendário
+   ============================================ */
+
+/* ---- Base Rarity Slot ---- */
+.sticker-slot {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+/* ---- COMMON (Comum) ---- */
+.rarity-common {
+  border: 2px solid var(--rarity-common);
+}
+
+.rarity-common:hover {
+  border-color: #b0b8c4;
+  box-shadow: 0 2px 8px rgba(156, 163, 175, 0.2);
+}
+
+/* ---- RARE (Raro) ---- */
+.rarity-rare {
+  border: 2px solid var(--rarity-rare);
+  box-shadow: 0 0 12px var(--rarity-rare-glow),
+              inset 0 0 8px rgba(59, 130, 246, 0.1);
+}
+
+.rarity-rare::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(59, 130, 246, 0.08) 50%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.rarity-rare:hover {
+  box-shadow: 0 0 20px var(--rarity-rare-glow),
+              0 0 40px rgba(59, 130, 246, 0.2),
+              inset 0 0 12px rgba(59, 130, 246, 0.15);
+}
+
+/* Rare shimmer line */
+.rarity-rare::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(59, 130, 246, 0.15) 45%,
+    rgba(59, 130, 246, 0.25) 50%,
+    rgba(59, 130, 246, 0.15) 55%,
+    transparent 60%
+  );
+  animation: rareShimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes rareShimmer {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* ---- EPIC (Épico) ---- */
+.rarity-epic {
+  border: 2px solid var(--rarity-epic);
+  box-shadow: 0 0 16px var(--rarity-epic-glow),
+              0 0 32px rgba(139, 92, 246, 0.2);
+  animation: epicPulse 3s ease-in-out infinite;
+}
+
+@keyframes epicPulse {
+  0%, 100% {
+    box-shadow: 0 0 16px var(--rarity-epic-glow),
+                0 0 32px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 24px var(--rarity-epic-glow),
+                0 0 48px rgba(139, 92, 246, 0.35),
+                0 0 64px rgba(139, 92, 246, 0.15);
+  }
+}
+
+/* Epic gradient border */
+.rarity-epic::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    var(--epic-angle, 0deg),
+    #8b5cf6,
+    #a78bfa,
+    #c4b5fd,
+    #8b5cf6
+  );
+  z-index: -1;
+  animation: epicBorderRotate 4s linear infinite;
+}
+
+@keyframes epicBorderRotate {
+  0% { --epic-angle: 0deg; }
+  100% { --epic-angle: 360deg; }
+}
+
+/* Fallback for browsers that don't support @property */
+@supports not (background: paint(something)) {
+  .rarity-epic::before {
+    background: linear-gradient(135deg, #8b5cf6, #a78bfa, #c4b5fd, #8b5cf6);
+    background-size: 300% 300%;
+    animation: epicGradientMove 3s ease infinite;
+  }
+}
+
+@keyframes epicGradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Epic overlay shimmer */
+.rarity-epic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(139, 92, 246, 0.15) 45%,
+    rgba(167, 139, 250, 0.25) 50%,
+    rgba(139, 92, 246, 0.15) 55%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: epicOverlay 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes epicOverlay {
+  0% { background-position: 200% 200%; }
+  100% { background-position: -200% -200%; }
+}
+
+/* ---- LEGENDARY (Lendário) ---- */
+.rarity-legendary {
+  border: 3px solid var(--rarity-legendary);
+  box-shadow: 0 0 20px var(--rarity-legendary-glow),
+              0 0 40px rgba(212, 167, 69, 0.25),
+              0 0 60px rgba(212, 167, 69, 0.1);
+  animation: legendaryGlow 3s ease-in-out infinite;
+}
+
+@keyframes legendaryGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--rarity-legendary-glow),
+                0 0 40px rgba(212, 167, 69, 0.25),
+                0 0 60px rgba(212, 167, 69, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--rarity-legendary-glow),
+                0 0 60px rgba(212, 167, 69, 0.35),
+                0 0 80px rgba(212, 167, 69, 0.2),
+                0 0 100px rgba(212, 167, 69, 0.1);
+  }
+}
+
+/* Holographic overlay */
+.rarity-legendary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    125deg,
+    rgba(255, 215, 0, 0.0) 0%,
+    rgba(255, 215, 0, 0.15) 15%,
+    rgba(255, 140, 0, 0.15) 30%,
+    rgba(255, 69, 0, 0.1) 45%,
+    rgba(138, 43, 226, 0.1) 55%,
+    rgba(30, 144, 255, 0.1) 70%,
+    rgba(0, 255, 127, 0.1) 85%,
+    rgba(255, 215, 0, 0.0) 100%
+  );
+  background-size: 400% 400%;
+  animation: holoShift 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+}
+
+@keyframes holoShift {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Golden shimmer line */
+.rarity-legendary::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    transparent 35%,
+    rgba(255, 215, 0, 0.1) 40%,
+    rgba(255, 215, 0, 0.3) 45%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 215, 0, 0.3) 55%,
+    rgba(255, 215, 0, 0.1) 60%,
+    transparent 65%
+  );
+  animation: legendaryShimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes legendaryShimmer {
+  0% { transform: translateX(-50%) translateY(-50%) rotate(45deg); }
+  100% { transform: translateX(50%) translateY(50%) rotate(45deg); }
+}
+
+/* ---- Rarity Badge Label ---- */
+.rarity-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.rarity-badge-common {
+  background: rgba(156, 163, 175, 0.3);
+  color: #d1d5db;
+  border: 1px solid rgba(156, 163, 175, 0.4);
+}
+
+.rarity-badge-rare {
+  background: rgba(59, 130, 246, 0.3);
+  color: #93bbfd;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.rarity-badge-epic {
+  background: rgba(139, 92, 246, 0.3);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.5);
+}
+
+.rarity-badge-legendary {
+  background: rgba(212, 167, 69, 0.3);
+  color: #f2e09e;
+  border: 1px solid rgba(212, 167, 69, 0.5);
+  box-shadow: 0 0 8px rgba(212, 167, 69, 0.3);
+}
+
+/* ---- Particles Effect (Legendary only) ---- */
+.legendary-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.legendary-particles .particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--copa-gold-400);
+  border-radius: 50%;
+  animation: particleFloat 3s ease-in-out infinite;
+  box-shadow: 0 0 4px var(--copa-gold-500);
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(50%) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%) scale(0);
+  }
+}
+
+/* ---- Rarity Select Dropdown ---- */
+.rarity-select {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--copa-blue-800);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-glass);
+}
+
+.rarity-option {
+  padding: 6px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.rarity-option:hover {
+  background: var(--copa-blue-600);
+  color: var(--text-primary);
+}
+
+.rarity-option.active {
+  color: white;
+}
+
+.rarity-option.active[data-rarity="common"] {
+  background: var(--rarity-common);
+}
+
+.rarity-option.active[data-rarity="rare"] {
+  background: var(--rarity-rare);
+}
+
+.rarity-option.active[data-rarity="epic"] {
+  background: var(--rarity-epic);
+}
+
+.rarity-option.active[data-rarity="legendary"] {
+  background: var(--copa-gold-500);
+  color: var(--copa-blue-900);
+}
