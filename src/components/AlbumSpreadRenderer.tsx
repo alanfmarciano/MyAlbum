@@ -98,7 +98,7 @@ export function AlbumSpreadRenderer({ leftPage, rightPage, leftPageIndex, rightP
       }}>
         {leftPage ? (
           <div className="group" style={{ width: '100%', height: '100%', backgroundColor: '#fff', borderRadius: isSinglePage ? '4px' : '4px 0 0 4px', overflow: 'hidden', position: 'relative' }}>
-            {leftPage.isCover ? <CoverPage config={config} customBgImage={leftPage.customBgImage} /> : leftPage.isBackCover ? <CoverPage config={config} isBack customBgImage={leftPage.customBgImage} /> : <AlbumPage page={leftPage} pageIndex={leftPageIndex!} previewSlots={previewSlots} previewConfig={config} />}
+            {leftPage.isCover ? <CoverPage config={config} customBgImage={leftPage.customBgImage} /> : leftPage.isBackCover ? <CoverPage config={config} isBack customBgImage={leftPage.customBgImage} /> : <AlbumPage page={leftPage} pageIndex={leftPageIndex!} previewSlots={previewSlots} previewConfig={config} isEditor={isEditor} />}
             {isEditor && <PageEditOverlay page={leftPage} />}
           </div>
         ) : null}
@@ -119,7 +119,7 @@ export function AlbumSpreadRenderer({ leftPage, rightPage, leftPageIndex, rightP
       }}>
         {rightPage ? (
           <div className="group" style={{ width: '100%', height: '100%', backgroundColor: '#fff', borderRadius: isSinglePage ? '4px' : '0 4px 4px 0', overflow: 'hidden', position: 'relative' }}>
-            {rightPage.isCover ? <CoverPage config={config} customBgImage={rightPage.customBgImage} /> : rightPage.isBackCover ? <CoverPage config={config} isBack customBgImage={rightPage.customBgImage} /> : <AlbumPage page={rightPage} pageIndex={rightPageIndex!} previewSlots={previewSlots} previewConfig={config} />}
+            {rightPage.isCover ? <CoverPage config={config} customBgImage={rightPage.customBgImage} /> : rightPage.isBackCover ? <CoverPage config={config} isBack customBgImage={rightPage.customBgImage} /> : <AlbumPage page={rightPage} pageIndex={rightPageIndex!} previewSlots={previewSlots} previewConfig={config} isEditor={isEditor} />}
             {isEditor && <PageEditOverlay page={rightPage} />}
           </div>
         ) : null}
