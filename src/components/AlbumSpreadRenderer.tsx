@@ -64,7 +64,7 @@ export function AlbumSpreadRenderer({ leftPage, rightPage, leftPageIndex, rightP
     <div className="album-spread-container" style={{ 
       display: 'flex', 
       width: '100%', 
-      height: '100%', 
+      height: 'auto', 
       aspectRatio: '420/297', 
       margin: '0 auto',
       gap: '2px', 
@@ -74,16 +74,6 @@ export function AlbumSpreadRenderer({ leftPage, rightPage, leftPageIndex, rightP
       borderRadius: '4px',
       position: 'relative'
     }}>
-      {/* Espinha do Álbum (Sombra no centro) */}
-      {!isSinglePage && !hideSpine && (
-        <div style={{
-          position: 'absolute', left: '50%', top: 0, bottom: 0, width: '40px',
-          transform: 'translateX(-50%)',
-          background: 'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)',
-          zIndex: 10, pointerEvents: 'none'
-        }} />
-      )}
-
       {/* Página Esquerda */}
       <div style={{ 
         flex: 1, 
@@ -125,6 +115,18 @@ export function AlbumSpreadRenderer({ leftPage, rightPage, leftPageIndex, rightP
           </div>
         ) : null}
       </div>
+
+      {/* Espinha do Álbum (Sombra no centro) movida para o final para ficar por cima */}
+      {!isSinglePage && !hideSpine && (
+        <div style={{
+          position: 'absolute', left: '50%', top: 0, bottom: 0, width: '40px',
+          transform: 'translateX(-50%)',
+          background: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0) 100%)',
+          pointerEvents: 'none',
+          zIndex: 99
+        }} />
+      )}
     </div>
   );
 }
+
